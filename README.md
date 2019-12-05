@@ -5,7 +5,7 @@ jpOwl客户端是java语言编写而成，要求做到API简单、高可靠性�
 
 在收集数据方面使用ThreadLocal，为每一个使用该变量的线程都提供一个变量值的副本，是Java中一种较为特殊的线程绑定机制，是每一个线程都可以独立地改变自己的副本，而不会和其它线程的副本冲突。
 
-![](https://user-gold-cdn.xitu.io/2019/7/24/16c233271510a63f?w=1428&h=784&f=png&s=466162)
+![](https://user-gold-cdn.xitu.io/2019/7/24/16c233271510a63f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 如图，执行业务逻辑的时候，就会把此次请求对应的监控存放于ThreadContext中，ThreadContext其实是一个监控树的结构。最后业务线程执行结束时，将监控对象**异步**存入一个内存队列中，jpOwl有个消费线程将队列内的数据**异步**发送到第三方存储引擎。
 ## 场景需求
 * 监控粒度可控制作用在接口上，方法上，乃至代码块上
@@ -54,8 +54,8 @@ jpOwl主要支持以下四种监控模型：
 ### 消息树
 jpOwl监控系统将每次URL、Service的请求内部执行情况都封装为一个完整的消息树、消息树可能包括`Transaction`、`Event`、`Heartbeat`、`Metric`等信息。
 **完整的消息树**
-![](https://user-gold-cdn.xitu.io/2019/7/24/16c233f58bf00c91?w=1047&h=333&f=png&s=248125)
+![](https://user-gold-cdn.xitu.io/2019/7/24/16c233f3411080ce?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 **可视化消息树**
 ![](https://user-gold-cdn.xitu.io/2019/7/24/16c233f3411080ce?w=976&h=469&f=png&s=560622)
 **分布式消息树【一台机器调用另外一台机器】**
-![](https://user-gold-cdn.xitu.io/2019/7/24/16c234002943d50e?w=769&h=609&f=png&s=447817)
+![](https://user-gold-cdn.xitu.io/2019/7/24/16c234002943d50e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
